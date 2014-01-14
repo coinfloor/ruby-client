@@ -67,12 +67,13 @@ Authenticates as a user by signing a challenge.
 
 ### Error Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": <integer>,
 		"error_msg": <string>
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -94,17 +95,19 @@ Retrieves the available balances of the authenticated user.
 
 ### Request
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"method": "GetBalances"
 	}
 
+```
+
 `tag` is optional. Iff given and non-zero, it will be echoed in the reply.
 
 ### Success Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": 0,
@@ -116,6 +119,7 @@ Retrieves the available balances of the authenticated user.
 			â‹®
 		]
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -125,12 +129,14 @@ Retrieves the available balances of the authenticated user.
 
 ### Error Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": <integer>,
 		"error_msg": <string>
 	}
+
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -149,17 +155,18 @@ Retrieves the open orders of the authenticated user.
 
 ### Request
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"method": "GetOrders"
 	}
+```
 
 `tag` is optional. Iff given and non-zero, it will be echoed in the reply.
 
 ### Success Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": 0,
@@ -172,9 +179,9 @@ Retrieves the open orders of the authenticated user.
 				"price": <integer>,
 				"time": <integer>
 			},
-			â‹®
 		]
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -190,12 +197,14 @@ Retrieves the open orders of the authenticated user.
 
 ### Error Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": <integer>,
 		"error_msg": <string>
 	}
+
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -214,7 +223,7 @@ Places an order to execute a specified trade. This command is used to place both
 
 ### Request
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"method": "PlaceOrder",
@@ -224,6 +233,7 @@ Places an order to execute a specified trade. This command is used to place both
 		"price": <integer>,
 		"total": <integer>
 	}
+```
 
 `tag` is optional. Iff given and non-zero, it will be echoed in the reply.
 
@@ -243,7 +253,7 @@ omitted    | omitted  | supplied
 
 ### Success Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": 0,
@@ -251,6 +261,7 @@ omitted    | omitted  | supplied
 		"time": <integer>,
 		"remaining": <integer>
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -262,12 +273,13 @@ omitted    | omitted  | supplied
 
 ### Error Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": <integer>,
 		"error_msg": <string>
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -292,12 +304,13 @@ Cancels an open order belonging to the authenticated user.
 
 ### Request
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"method": "CancelOrder",
 		"id": <integer>
 	}
+```
 
 `tag` is optional. Iff given and non-zero, it will be echoed in the reply.
 
@@ -305,7 +318,7 @@ Cancels an open order belonging to the authenticated user.
 
 ### Success Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": 0,
@@ -314,6 +327,7 @@ Cancels an open order belonging to the authenticated user.
 		"quantity": <integer>,
 		"price": <integer>
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -325,12 +339,13 @@ Cancels an open order belonging to the authenticated user.
 
 ### Error Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": <integer>,
 		"error_msg": <string>
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -349,7 +364,7 @@ Subscribes/unsubscribes the requesting client to/from the orders feed of a speci
 
 ### Request
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"method": "WatchOrders",
@@ -357,6 +372,7 @@ Subscribes/unsubscribes the requesting client to/from the orders feed of a speci
 		"counter": <integer>,
 		"watch": <boolean>
 	}
+```
 
 `tag` is optional. Iff given and non-zero, it will be echoed in the reply.
 
@@ -366,22 +382,25 @@ Subscribes/unsubscribes the requesting client to/from the orders feed of a speci
 
 ### Success Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": 0
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
 ### Error Reply
 
-	#!json
+```json
+
 	{
 		"tag": <integer>,
 		"error_code": <integer>,
 		"error_msg": <string>
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
@@ -399,7 +418,8 @@ Subscribes/unsubscribes the requesting client to/from the ticker feed of a speci
 
 ### Request
 
-	#!json
+```json
+
 	{
 		"tag": <integer>,
 		"method": "WatchTicker",
@@ -407,6 +427,7 @@ Subscribes/unsubscribes the requesting client to/from the ticker feed of a speci
 		"counter": <integer>,
 		"watch": <boolean>
 	}
+```
 
 `tag` is optional. Iff given and non-zero, it will be echoed in the reply.
 
@@ -416,22 +437,25 @@ Subscribes/unsubscribes the requesting client to/from the ticker feed of a speci
 
 ### Success Reply
 
-	#!json
+```json
+
 	{
 		"tag": <integer>,
 		"error_code": 0
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
 ### Error Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": <integer>,
 		"error_msg": <string>
 	}
+```
 
 `tag` is present iff `tag` was given and non-zero in the request.
 
