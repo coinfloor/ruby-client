@@ -34,9 +34,9 @@ gem install cf-trade-client
 
 ### Numbers and scale
 
-All numbers given and recieved are integers
+All numbers given and recieved are integers, numbers entered and returned must be scaled up for down.
 
-Scale is currently not available
+For scale information please see SCALE.md
 
 ```ruby
 require 'trade_client'
