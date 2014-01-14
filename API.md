@@ -31,7 +31,7 @@ Authenticates as a user by signing a challenge.
 
 ### Request
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"method": "Authenticate",
@@ -43,6 +43,7 @@ Authenticates as a user by signing a challenge.
 			<string>
 		]
 	}
+```
 
 `tag` is optional. Iff given and non-zero, it will be echoed in the reply.
 
