@@ -57,12 +57,12 @@ Authenticates as a user by signing a challenge.
 
 ### Success Reply
 
-	#!json
+```json
 	{
 		"tag": <integer>,
 		"error_code": 0
 	}
-
+```
 `tag` is present iff `tag` was given and non-zero in the request.
 
 ### Error Reply
@@ -116,7 +116,7 @@ Retrieves the available balances of the authenticated user.
 				"asset": <integer>,
 				"balance": <integer>
 			},
-			â‹®
+		
 		]
 	}
 ```
