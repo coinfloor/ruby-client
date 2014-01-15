@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'cf-trade-client'
-  s.version     = '0.1.3'
-  s.date        = '2014-01-14'
+  s.version     = '0.1.4'
+  s.date        = '2014-01-15'
   s.summary     = "A ruby client library to trade on the Coinfloor platform using their API"
   s.description = "This client allows a user to trade on the coinfloor plaform using their API, it uses EventMachine and Faye websockets library as well as depending on the coinfloor libecp gem"
 	s.add_dependency "faye-websocket","~> 0.7.2"

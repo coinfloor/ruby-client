@@ -97,7 +97,7 @@ module Coinfloor
         :method => "WatchOrders",
         :base => arguments[:base_asset_id],
         :counter => arguments[:counter_asset_id],
-        :watch => false
+        :watch => true
       }.to_json
     end
   end
