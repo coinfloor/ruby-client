@@ -65,6 +65,6 @@ client.exec(:getorders,{})
 
 ## API
 
-For an explanation of the API calls and what they return, please see API.md
+For an explanation of the API calls and what they return, please see [API.md](API.md)
 
 An example of this API implemented in ruby can be seen in lib/trade_api/trade_api.rb , this also lists the calls that this library can make.
