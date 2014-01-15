@@ -2,8 +2,6 @@
 
 A reward will be given to participants in this beta test. Please fill in this form if interested in being involved. (http://eepurl.com/MeuYr)
 
-A reward will be given to participants in this beta test. Please fill in this form if interested in being involved. (http://eepurl.com/MeuYr)
-
 ## Licence
 ```
 Copyright 2014 Coinfloor LTD.
