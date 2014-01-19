@@ -16,7 +16,7 @@ limitations under the License.
 require 'faye/websocket'
 module Coinfloor
   class CFClient
-    def initialize(domain,uid,api_key,pass,pkey=nil)
+    def initialize(domain,uid,pass,api_key,pkey=nil)
       
       if domain.include?("ws://")||domain.include?("wss://")
         @messages=[]

@@ -41,9 +41,9 @@ For scale information please see SCALE.md
 ```ruby
 require 'trade_client'
 
-#create new client and connect with user id 10 and password "apple"
+# Create and connect with user id,,password and API key
 
-client=Coinfloor::CFClient.new("ws://IP-GOES-HERE:8080",10,"YOUR_PASSWORD","YOUR_API_KEY") 
+client=Coinfloor::CFClient.new("wss://api.coinfloor.co.uk",ID,"PASSWORD","API_KEY") 
 
 #asset codes (may be different in deployment)
 asset_btc=63488

@@ -144,7 +144,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(domain,uid,api_key,pass,pkey=nil)</span>
+            class="method-args">(domain,uid,pass,api_key,pkey=nil)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -157,7 +157,7 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/client/client.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">domain</span>,<span class="ruby-identifier">uid</span>,<span class="ruby-identifier">api_key</span>,<span class="ruby-identifier">pass</span>,<span class="ruby-identifier">pkey</span>=<span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">domain</span>,<span class="ruby-identifier">uid</span>,<span class="ruby-identifier">pass</span>,<span class="ruby-identifier">api_key</span>,<span class="ruby-identifier">pkey</span>=<span class="ruby-keyword">nil</span>)
   
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">domain</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;ws://&quot;</span>)<span class="ruby-operator">||</span><span class="ruby-identifier">domain</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;wss://&quot;</span>)
     <span class="ruby-ivar">@messages</span>=[]
