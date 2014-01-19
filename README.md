@@ -43,7 +43,7 @@ require 'trade_client'
 
 #create new client and connect with user id 10 and password "apple"
 
-client=Coinfloor::CFClient.new("ws://IP-GOES-HERE:8080",10,"apple") 
+client=Coinfloor::CFClient.new("ws://IP-GOES-HERE:8080",10,"YOUR_PASSWORD","YOUR_API_KEY") 
 
 #asset codes (may be different in deployment)
 asset_btc=63488
@@ -65,6 +65,7 @@ client.exec(:getorders,{})
 
 ## API
 
-For an explanation of the API calls and what they return, please see API.md
+For an explanation of the API calls and what they return, please see [API.md](API.md)
 
 An example of this API implemented in ruby can be seen in lib/trade_api/trade_api.rb , this also lists the calls that this library can make.
+

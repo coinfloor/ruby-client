@@ -22,7 +22,7 @@ module Coinfloor
   # All method calls return json which is to be sent to the API.
   class CFcon
     # coinfloor user trade id, password
-    def initialize(uid,password,pkey=nil)
+    def initialize(uid,password,api_key,pkey=nil)
       @uid=uid
       @uid_byte=LibEcp.gen_uid(uid)
       if pkey
@@ -33,7 +33,7 @@ module Coinfloor
 
       end
       @public_key=LibEcp.gen_pub(@private_key)
-      @cookie=LibEcp.gen_cookie(@uid_byte)
+      @cookie=api_key
       @password=nil
     end
 
