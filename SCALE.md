@@ -8,13 +8,13 @@ All values entered into or received from the trade engine need to have the quant
 
 - All values relating to GBP are representing in units of 0.01 GBP
 
-###For the following functions any price provided should be scaled by 10000
+##For the following functions any price provided should be scaled by 10000
 
 ```
 - PlaceOrder
 ```
 
-###For the following functions any prices returned are scaled by 10000
+##For the following functions any prices returned are scaled by 10000
 
 ```
 - GetOrders
@@ -24,7 +24,7 @@ All values entered into or received from the trade engine need to have the quant
 ```
 
 
-###Examples:
+##Examples:
 ```
 1) PlaceOrder for quantity: 2000000, 
 

@@ -16,17 +16,18 @@ limitations under the License.
 require 'faye/websocket'
 module Coinfloor
   class CFClient
-    def initialize(domain,uid,pass,api_key,pkey=nil)
-      
+    def initialize(domain,uid,pass,api_key=nil,pkey=nil)
       if domain.include?("ws://")||domain.include?("wss://")
         @messages=[]
         if uid==0
           @con=CFAcon.new(uid,pass)
         else
-          if pkey
+          if api_key.nil?
+            abort("An API key is required")
+          elsif pkey
             @con=CFcon.new(uid,pass,api_key,pkey)
           else
-            @con=CFcon.new(uid,api_key,pass)
+            @con=CFcon.new(uid,pass,api_key)
           end
         end
         @domain=domain
@@ -43,6 +44,7 @@ module Coinfloor
     end
     
     def begin_connection(sendata)
+      puts "begining connection"
       output=nil
       EM.run {
         ws = Faye::WebSocket::Client.new(@domain)
@@ -50,8 +52,10 @@ module Coinfloor
         end
         
         ws.on :message do |event|
+          puts "message from server"
           evtdata=event.data
           msg=JSON.parse(evtdata)
+          puts msg
           if msg["notice"]&&msg["notice"]=="Welcome"
             auth(ws,msg)
           elsif msg["notice"].nil?
