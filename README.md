@@ -1,8 +1,31 @@
 ## Coinfloor trade client
 
-This library can be used with the provided websocket client (CFClient) or you can use CFcon (the trade API) to roll your own (since the provided websocket client implementation is quite slow).
+Welcome to the Coinfloor ruby trade client implementation. You can use this example implementation to connect to the Coinfloor API which is currently in private beta. Coinfloor’s application programming interface (API) allows our clients to programmatically access and control aspects of their accounts and place orders on the Coinfloor trading platform.  The ruby trade client uses websockets to connect to our trading engine.
 
-It allows you to connect to the Coinfloor API and make trades.
+If you are interested in testing using a custom client either in ruby or using another programming language, feel free to use our libecp wrapper for signing,verifying signatures and generating keys. https://github.com/coinfloor/ruby-libecp
+
+## Signup to our beta
+Are you interested in getting rewarded for testing out our trade engine? Sign up to our private beta at (http://eepurl.com/MeuYr). 
+
+## Naming Conventions
+As you've probably noticed our sample client implementation uses different naming conventions than our API standalone documentation. We are working hard to improve the documentation of this implementation, but here are the main differences:
+
+In the Authenticate method: 
+Cookie in the API.md file  is equal to API_key in the ruby client
+Private keys are constructed using Libecp which is used to construct the signatures.
+
+For more details with respect to the construction of private keys and signatures please review the trade_api.rb source file here
+
+## Extra notes: 
+All requests to the Coinfloor’s trading engine go through a load balancer. Clients connecting via websocket should send a ping frame every 45 seconds or so while the connection is otherwise idle. This prevents the load balancer from dropping the connection.
+
+Asset codes: (these might be different when we go live)
+Bitcoin: asset_btc=63488
+British Pound: asset_gbp=64032
+
+
+## Let us know your feedback!
+We’re looking to get as much feedback as we can from this private beta. We know that there are a lot of areas in which we can improve and we would like to hear your opinion. Contact us at http://support.coinfloor.co.uk! 
 
 ## Licence
 ```
@@ -36,18 +59,15 @@ gem install cf-trade-client
 
 All numbers given and recieved are integers, numbers entered and returned must be scaled up for down.
 
-For scale information please see SCALE.md
+For scale information please see [SCALE.md] (SCALE.md)
 
+### Sample usage
 ```ruby
 require 'trade_client'
 
 # Create and connect with user id,,password and API key
 
 client=Coinfloor::CFClient.new("wss://api.coinfloor.co.uk",ID,"PASSWORD","API_KEY") 
-
-#asset codes (may be different in deployment)
-asset_btc=63488
-asset_gbp=64032
 
 #get balances
 client.get_balance
