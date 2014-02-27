@@ -4,9 +4,6 @@ Welcome to the Coinfloor ruby trade client implementation. You can use this exam
 
 If you are interested in testing using a custom client either in ruby or using another programming language, feel free to use our libecp wrapper for signing,verifying signatures and generating keys. https://github.com/coinfloor/ruby-libecp
 
-## Signup to our beta
-Are you interested in getting rewarded for testing out our trade engine? Sign up to our private beta at (http://eepurl.com/MeuYr). 
-
 ## Naming Conventions
 As you've probably noticed our sample client implementation uses different naming conventions than our API standalone documentation. We are working hard to improve the documentation of this implementation, but here are the main differences:
 
