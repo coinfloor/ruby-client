@@ -1,64 +1,31 @@
-## Coinfloor trade client
+ruby-client
+===========
 
-Welcome to the Coinfloor ruby trade client implementation. You can use this example implementation to connect to the Coinfloor API which is currently in private beta. Coinfloor’s application programming interface (API) allows our clients to programmatically access and control aspects of their accounts and place orders on the Coinfloor trading platform.  The ruby trade client uses websockets to connect to our trading engine.
+## Coinfloor's Ruby client library
 
-If you are interested in testing using a custom client either in ruby or using another programming language, feel free to use our libecp wrapper for signing,verifying signatures and generating keys. https://github.com/coinfloor/ruby-libecp
+Coinfloor's application programming interface (API) provides our clients programmatic access to control aspects of their accounts and to place orders on the Coinfloor trading platform. The Ruby client library exposes the Coinfloor API to your Ruby application.
 
-## Naming Conventions
-As you've probably noticed our sample client implementation uses different naming conventions than our API standalone documentation. We are working hard to improve the documentation of this implementation, but here are the main differences:
+### Naming Conventions
 
-In the Authenticate method: 
-Cookie in the API.md file  is equal to API_key in the ruby client
-Private keys are constructed using Libecp which is used to construct the signatures.
+This client implementation uses different naming conventions than our API specification. We are working hard to improve the documentation of this implementation, but here are the main differences:
 
-For more details with respect to the construction of private keys and signatures please review the trade_api.rb source file here
+In the `Authenticate` method:
+* `cookie` in the API spec is called `API_key` in the Ruby client.
+* Private keys are constructed using Libecp, which is also used to construct the signatures.
 
-## Extra notes: 
-All requests to the Coinfloor’s trading engine go through a load balancer. Clients connecting via websocket should send a ping frame every 45 seconds or so while the connection is otherwise idle. This prevents the load balancer from dropping the connection.
+For more details on the construction of private keys and signatures please review [trade_api.rb][].
 
-Asset codes: (these might be different when we go live)
-Bitcoin: asset_btc=63488
-British Pound: asset_gbp=64032
+### Dependencies
 
+* cf-ruby-libecp gem
+* Faye/websockets
 
-## Let us know your feedback!
-We’re looking to get as much feedback as we can from this private beta. We know that there are a lot of areas in which we can improve and we would like to hear your opinion. Contact us at http://support.coinfloor.co.uk! 
+### Installation
 
-## Licence
-```
-Copyright 2014 Coinfloor LTD.
+	gem install cf-trade-client
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+### Usage example
 
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
-
-## Requirements
-Relies on cf-ruby-libecp gem and Faye/websockets
-
-## Installation
-
-```
-gem install cf-trade-client
-```
-
-## Usage
-
-### Numbers and scale
-
-All numbers given and recieved are integers, numbers entered and returned must be scaled up for down.
-
-For scale information please see [SCALE.md] (SCALE.md)
-
-### Sample usage
 ```ruby
 require 'trade_client'
 
@@ -80,9 +47,46 @@ order_id=result["id"]
 client.exec(:getorders,{})
 ```
 
+### Extra notes
+
+All connections to the Coinfloor's trade engine go through a load balancer. Clients connecting via WebSocket should send a ping frame every 45 seconds or so while the connection is otherwise idle. This prevents the load balancer from dropping the connection.
+
+
+## Sign up to our beta
+
+Are you interested in getting rewarded for testing out our trade engine? Sign up to our [private beta](http://eepurl.com/MeuYr).
+
+
 ## API
 
-For an explanation of the API calls and what they return, please see [API.md](API.md)
+For an explanation of our API methods and what they return, please see our [API specification](https://github.com/coinfloor/API).
 
-An example of this API implemented in ruby can be seen in lib/trade_api/trade_api.rb , this also lists the calls that this library can make.
+An implementation of this API in Ruby can be seen in [lib/trade_api/trade_api.rb][trade_api.rb]. This also lists the calls that this library can make.
 
+[trade_api.rb]: https://github.com/coinfloor/ruby-client/blob/master/lib/trade_api/trade_api.rb
+
+### Numbers and scale
+
+All quantities and prices are transmitted and received as integers with implicit scale factors. For scale information, please see [SCALE.md](https://github.com/coinfloor/API/blob/master/SCALE.md).
+
+
+## Licence
+
+Copyright 2014 Coinfloor LTD.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+> http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
+## Give us your feedback!
+
+We're always looking to get as much feedback as we can. We want to hear your opinion. [Contact us](http://support.coinfloor.co.uk/).
