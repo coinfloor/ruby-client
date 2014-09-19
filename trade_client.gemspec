@@ -7,10 +7,12 @@ Gem::Specification.new do |s|
   s.authors     = ["Coinfloor LTD"]
   s.homepage    = "http://coinfloor.co.uk"
   s.license     = "Apache License Version 2.0"
-  s.files       = ["lib/trade_client.rb", "lib/client/client.rb", "lib/trade_api/trade_api.rb"]
 
-  s.add_dependency "cf-ruby-libecp"
-  s.add_dependency "faye-websocket", "~> 0.7.2"
-  s.add_dependency "json"
+  s.add_dependency "cf-ruby-libecp", "~> 0.1",  ">= 0.1.4"
+  s.add_dependency "faye-websocket", "~> 0.7", "= 0.7.2"
+  s.add_dependency "json", "~> 1.8", ">= 1.8.1"
   s.required_ruby_version = ">= 1.9.3"
+
+  s.files         = ["lib/trade_client.rb", "lib/client/client.rb", "lib/trade_api/trade_api.rb"]
+  s.require_paths = ["lib"]
 end

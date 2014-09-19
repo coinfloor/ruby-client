@@ -1,5 +1,5 @@
-require "cf-ruby-libecp"
 require "json"
+require "libecp"
 
 module Coinfloor
   class CFcon
