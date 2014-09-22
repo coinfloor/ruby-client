@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "cf-trade-client"
-  s.version     = "0.2.0"
+  s.version     = "0.2.1"
   s.summary     = "Ruby Coinfloor Client"
   s.description = "Client to trade on the Coinfloor platform using their API."
   s.email       = "development@coinfloor.co.uk"
