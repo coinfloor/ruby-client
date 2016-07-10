@@ -31,11 +31,10 @@ Use the gem in a project managed with Bundler adding it into Gemfile:
     gem "cf-ruby-libecp"
     gem "cf-trade-client"
 
-
 ## Usage example
 
 ```ruby
-require "trade-client"
+require "trade_client"
 
 # Create and connect with user id, password and API key
 client = Coinfloor::CFClient.new("wss://api.coinfloor.co.uk", ID, "PASSWORD", "API_KEY")
